@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv"; // dotenv is a module for loading environment variables from a .env file into process.env.
 dotenv.config(); // load the .env file
-mongoose.connect("mongodb://localhost:27017/myblog" || `${process.env.MONGODB_URI}`) // connect to mongodb
+mongoose.connect(`${process.env.MONGODB_URI}`) // connect to mongodb
     .then(() => console.log("Malumotlar Bazasiga Ulandi..."))
     .catch((err: Error) => console.log(`Malumotlar Bazasida Ulanishda Xato!: => ${err}`));
 
