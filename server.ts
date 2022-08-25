@@ -17,7 +17,7 @@ if (app.get("env") === "development") {
   app.use(morgan("tiny")); // for logging requests
   
 }else {
-  //app.use(helmet()); // for logging and security
+  app.use(helmet()); // for logging and security
   app.enable("trust proxy"); // trust proxy is a method of express that allows you to set the value of req.ips to the IP address of the proxy that connected to your app.
   app.use((req, res, next) => {
     if (req.secure) {
@@ -28,7 +28,7 @@ if (app.get("env") === "development") {
   });
 }
 const corsOptions = {
-  origin: "http://okian.uz",
+  origin: "*",//"http://okian.uz",
   credentials: true,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
